@@ -1,3 +1,3 @@
 # CSI
-Calidad de los Sistemas Informáticos\n
+Calidad de los Sistemas Informáticos      
 Grupo: Artyom
