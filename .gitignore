@@ -1,4 +1,4 @@
 
 
 #Ignore db.properties
-*.properties
+/*Db.*
