@@ -53,6 +53,8 @@ public class Data {
     	return b ? 1 : 0 ;
     }
     
+  
+  }
 
- 	}
 
+	
