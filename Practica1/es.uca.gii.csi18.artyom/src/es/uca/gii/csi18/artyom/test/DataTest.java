@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import es.uca.gii.csi18.artyom.data.Data;
@@ -16,7 +17,9 @@ class DataTest {
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception { Data.LoadDriver(); }
  
+	
 	@Test
+	@Disabled
 	public void testTableAccess() throws Exception {
 		
 		Connection con = null;
