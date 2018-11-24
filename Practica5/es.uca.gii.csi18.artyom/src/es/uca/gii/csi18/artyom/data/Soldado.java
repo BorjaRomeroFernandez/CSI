@@ -170,13 +170,17 @@ public class Soldado {
 		if (sName == null && iHours == null)
 			return "";
 		else {
-			String sConditions = null;
+			String sConditions = "";
+
 			if (sName != null)
-				sConditions = sConditions + "Name LIKE " + Data.String2Sql(sName, true, true) ;
-			if (iHours != null)
-				if(sName != null) sConditions += " AND ";
-				sConditions = sConditions + "GuardHours = " + iHours;
-				
+				sConditions = "Name LIKE " + Data.String2Sql(sName, true, true);
+
+			if (iHours != null) {
+				if (sName != null)
+					sConditions += " AND ";
+				sConditions += "GuardHours = " + (int) iHours;
+			}
+
 			return " WHERE " + sConditions;
 		}
 	}

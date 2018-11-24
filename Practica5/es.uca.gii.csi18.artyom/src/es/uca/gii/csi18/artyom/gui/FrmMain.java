@@ -60,22 +60,30 @@ public class FrmMain {
 		JMenu mitNew = new JMenu("Nuevo");
 		menuBar.add(mitNew);
 
-		JMenuItem mitNewSoldier = new JMenuItem("Soldado");
-		mitNewSoldier.addActionListener(new ActionListener() {
+		JMenuItem mitNewSoldado = new JMenuItem("Soldado");
+		mitNewSoldado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				IfrSoldier ifrSoldier = new IfrSoldier();
-				ifrSoldier.setBounds(300, 100, 700, 550);
-				frame.getContentPane().add(ifrSoldier);
-				ifrSoldier.setVisible(true);
+				IfrSoldado ifrSoldado = new IfrSoldado(null);
+				ifrSoldado.setBounds(300, 100, 700, 550);
+				frame.getContentPane().add(ifrSoldado);
+				ifrSoldado.setVisible(true);
 			}
 		});
-		mitNew.add(mitNewSoldier);
+		mitNew.add(mitNewSoldado);
 
 		JMenu mitSearch = new JMenu("Buscar");
 		menuBar.add(mitSearch);
 
-		JMenuItem mitSearchSoldier = new JMenuItem("Soldado");
-		mitSearch.add(mitSearchSoldier);
+		JMenuItem mitSearchSoldado = new JMenuItem("Soldado");
+		mitSearchSoldado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				IfrSoldados ifrSoldados = new IfrSoldados(frame);
+				ifrSoldados.setBounds(300, 100, 700, 550);
+				frame.getContentPane().add(ifrSoldados, 0);
+				ifrSoldados.setVisible(true);
+			}
+		});
+		mitSearch.add(mitSearchSoldado);
 		frame.getContentPane().setLayout(null);
 	}
 

@@ -94,7 +94,7 @@ class SoldadoTest {
 
 		try {
 			con = Data.Connection();
-			ArrayList<Soldado> aSoldado1 = Soldado.Select("Federico", null);
+			ArrayList<Soldado> aSoldado1 = Soldado.Select(null, null);
 			rs = con.createStatement().executeQuery("SELECT Id, Name, GuardHours FROM soldado ;");
 
 			while (rs.next()) {
@@ -115,10 +115,11 @@ class SoldadoTest {
 				assertEquals(rs.getInt("GuardHours"), aSoldado2.get(i).getHours());
 				++i;
 			}
-			
+
 			i = 0;
+			rs.close();
 			ArrayList<Soldado> aSoldado3 = Soldado.Select(null, 88);
-			rs = con.createStatement().executeQuery("SELECT Id, Name, GuardHours FROM soldado GuardHours = 88 ;");
+			rs = con.createStatement().executeQuery("SELECT Id, Name, GuardHours FROM soldado WHERE GuardHours = 88 ;");
 
 			while (rs.next()) {
 				assertEquals(rs.getInt("Id"), aSoldado3.get(i).getId());
@@ -132,11 +133,10 @@ class SoldadoTest {
 			rs = con.createStatement().executeQuery(
 					"SELECT Id, Name, GuardHours FROM soldado WHERE Name = 'Federico' AND GuardHours = 88 ;");
 
-			while (rs.next()) {
+			if (rs.next()) {
 				assertEquals(rs.getInt("Id"), aSoldado4.get(i).getId());
 				assertEquals(rs.getString("Name"), aSoldado4.get(i).getName());
 				assertEquals(rs.getInt("GuardHours"), aSoldado4.get(i).getHours());
-				++i;
 			}
 		} catch (SQLException ee) {
 			throw ee;
